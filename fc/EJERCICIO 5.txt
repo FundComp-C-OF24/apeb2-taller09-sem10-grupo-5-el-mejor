@@ -1,0 +1,74 @@
+EJERCICIO 5
+1 Inicio
+2	Definir
+    		matrizA[100][100]
+    		matrizB[100][100]
+    		resultado[100][100]
+   		numerosUsados[19]
+    		filasA, columnasA, filasB, columnasB, numeroAleatorio,i, j, k Como Entero
+    		filasA = 0
+    		columnasA = 0
+    		filasB = 0
+    		columnasB = 0
+3 Escribir("Ingrese las dimensiones de la primera matriz:")
+4 Escribir("Número de filas de la primera matriz: ")
+5 Leer filasA
+6 Escribir("Número de columnas de la primera matriz: ")
+7 Leer columnasA
+8 Escribir("Ingrese las dimensiones de la segunda matriz:")
+9 Escribir("Número de filas de la segunda matriz: ")
+10 Leer filasB
+11 Escribir("Número de columnas de la segunda matriz: ")
+12 Leer columnasB
+13 Si (columnasA != filasB) 
+14     Escribir("Error: No se pueden multiplicar estas matrices.")
+15 FinSi
+16 Para ( i = 0; i < filasA; i=i+1)
+17         numerosUsados[i] = Falso
+18    FinPara
+19
+20    Escribir("Matriz A:")
+21 Para  ( i = 0; i < filasA; i=i+1) 
+22        Para ( j = 0; j < columnasA; j=j+1)
+23            Hacer
+24                numeroAleatorio = Aleatorio(-9, 9)
+25            Mientras
+26		numerosUsados[numeroAleatorio + 9]
+27            numerosUsados[numeroAleatorio + 9] = Verdadero
+28            matrizA[i][j] = numeroAleatorio
+29            Escribir(matrizA[i][j], " ");
+30        FinPara
+31        Escribir()
+32  FinPara	
+33    Para ( i = 0; i < filasB; i=i+1)
+34        numerosUsados[i] = Falso
+35  FinPara
+36    Escribir("Matriz B:")
+37    Para (i = 0; i < filasB; j=j+1)
+38        Para (j = 0; j < columnasB; j++)
+39              numeroAleatorio = Aleatorio(-9, 9)
+40              Mientras numerosUsados[numeroAleatorio + 9]
+41              numerosUsados[numeroAleatorio + 9] = Verdadero
+42              matrizB[i][j] = numeroAleatorio
+43              Escribir(matrizB[i][j], " ")
+44        FinPara
+45        Escribir()
+46    FinPara
+47
+48    Para ( i = 0; i < filasA; i=i+1)
+49        Para ( j = 0; j < columnasB; j++)
+50            resultado[i][j] = 0
+51            Para ( k = 0; k < columnasA; k=k+1)
+52                resultado[i][j] += matrizA[i][k] * matrizB[k][j]
+53          FinPara
+54      FinPara
+55  FinPara
+56  Escribir("Matriz Resultante:")
+57 Para ( i = 0; i < filasA; i=i+1)
+58   Para( j = 0; j < columnasB; j=j+1) 
+59          Escribir(resultado[i][j], " ")
+60      FinPara
+61      Escribir()
+62   FinPara
+63 FinAlgoritmo
+

@@ -1,0 +1,52 @@
+EJERCICIO 1
+1 inicio
+     Definir
+     	nomAlabado Como Caracter[28] = {"ESTUDIANTE 1", "ESTUDIANTE 2", "ESTUDIANTE 3", "ESTUDIANTE 4", "ESTUDIANTE 5", "ESTUDIANTE 6", "ESTUDIANTE  	7", "ESTUDIANTE 8", "ESTUDIANTE 9", "ESTUDIANTE 10", "ESTUDIANTE 11", "ESTUDIANTE 12", "ESTUDIANTE 13", "ESTUDIANTE 14", "ESTUDIANTE 15", 5 	"ESTUDIANTE 16", "ESTUDIANTE 17", "ESTUDIANTE 18", "ESTUDIANTE 19", "ESTUDIANTE 20", "ESTUDIANTE 21", "ESTUDIANTE 22", "ESTUDIANTE 23", 5 	"ESTUDIANTE 24", "ESTUDIANTE 25", "ESTUDIANTE 26", "ESTUDIANTE 27", "ESTUDIANTE 28"}
+        limEst Como Entero, limNotas Como Entero
+    	limEst = Longitud(nomAlabado)
+    	limNotas = 3
+    	matNotas Como Real[limEst][limNotas]
+    	arrPromedio Como Real[limEst]
+    	promedioGeneral Como Real
+    	EstudianteChever, EstudianteVago, i, j Como Entero
+2 Para ( i = 0; i < limEst; i=i+1) 
+3         Para ( j = 0; j < limNotas; j=j+1) Hacer
+4             matNotas[i][j] = Aleatorio(1, 10)
+5         FinPara
+6 FinPara
+7 Para ( i = 0; i < limEst; i=1+i) 
+8         arrPromedio[i] = (matNotas[i][0] * 0.35) + (matNotas[i][1] * 0.35) + (matNotas[i][2] * 0.30)
+9         promedioGeneral = promedioGeneral + arrPromedio[i]
+10         Si arrPromedio[i] > arrPromedio[EstudianteChever] Entonces
+11             EstudianteChever = i
+12         FinSi
+13         Si arrPromedio[i] < arrPromedio[EstudianteVago] Entonces
+14             EstudianteVago = i
+15         FinSi
+16 FinPara
+17 promedioGeneral = promedioGeneral / limEst
+18 Escribir("NOMBRES | ACD   | APE   | AA    | PROMEDIOS")
+19 Para ( i = 0; i < limEst; i=i+1)  
+20 	Escribir(nomAlabado[i] + "\t")
+21         Para ( j = 0; j < limNotas; j=j+1) Hacer
+22             Escribir("| ", matNotas[i][j], " \t")
+23         FinPara
+24         Escribir("| ", arrPromedio[i], " \t")
+25         Escribir("")
+26 FinPara
+27 Escribir("\nPromedio General: ", promedioGeneral)
+28 Escribir("\nMejor Estudiante: ", nomAlabado[EstudianteChever], " | Promedio: ", arrPromedio[EstudianteChever])
+29 Escribir("Peor Estudiante: ", nomAlabado[EstudianteVago], " | Promedio: ", arrPromedio[EstudianteVago])
+30 Escribir("\nEstudiantes por encima del promedio:")
+31 Para i = 0 Hasta limEst - 1 Hacer
+32         Si arrPromedio[i] > promedioGeneral Entonces
+33             Escribir(nomAlabado[i], " | Promedio: ", arrPromedio[i])
+34         FinSi
+35 FinPara
+36 Escribir("\nEstudiantes por debajo del promedio:")
+37 Para i = 0 Hasta limEst - 1 Hacer
+38         Si arrPromedio[i] < promedioGeneral Entonces
+39             Escribir(nomAlabado[i], " | Promedio: ", arrPromedio[i])
+40         FinSi
+41 FinPara
+42 FinAlgoritmo

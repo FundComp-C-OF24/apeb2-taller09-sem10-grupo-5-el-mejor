@@ -1,0 +1,104 @@
+EJERCICIO 2
+1 Inicio   
+    Definir 
+	indiceEliminar Como Real
+	totalProductos, opcion, i Como Entero
+	inventario[100][3] Como Cadena
+    	totalProductos = 0 Como Entero
+2 Hacer 
+3 Escribir("INVENTARIO DE MI TIENDA SETSI:")
+4 Escribir("1. Agregar nuevo producto")
+5 Escribir("2. Actualizar existencias")
+6 Escribir("3. Buscar producto")
+7 Escribir("4. Eliminar producto")
+8 Escribir("5. Mostrar inventario")
+9 Escribir("0. Salir")
+10 Eribir("Seleccione una opción: ")
+11 Leer opcion
+12 si (opcion==1) 
+13      // Agregar nuevo producto
+14      Escribir("Ingrese el nombre del producto: ")
+15      Leer inventario[totalProductos][0]
+16      Escribir("Ingrese el precio del producto: ")
+16      Leer inventario[totalProductos][1]
+18      Escribir("Ingrese la cantidad en stock: ")
+19      Leer inventario[totalProductos][2]
+20      Escribir("Producto agregado exitosamente.")
+21      totalProductos = totalProductos + 1
+22 Sino
+23 	si (opcion==2) 
+24             // Actualizar existencias
+25             Escribir("Ingrese el nombre del producto a actualizar: ")
+26             Leer nombreActualizar
+27             indiceActualizar = -1
+28             Para ( i = 0; i < totalProductos; i=i+1) 
+29             	Si (inventario[i][0].equalsIgnoreCase(nombreActualizar))
+30             	     indiceActualizar = i
+31             	     Salir // Salir del bucle si se encuentra el producto
+32             	FinSi
+33              FinPara
+34                 Si (indiceActualizar != -1)
+35                     Escribir("Ingrese la nueva cantidad en stock: ")
+36                     Leer nuevaCantidad
+37                     inventario[indiceActualizar][2] = nuevaCantidad
+38                     Escribir("Existencias actualizadas exitosamente.")
+39                 Sino
+40                  Escribir("Producto no encontrado.")                
+41	SiNo
+42             si (opcion==3) 
+43                  // Buscar producto
+44 
+45                  Escribir("Ingrese el nombre del producto a buscar: ")
+46                  Leer nombreBuscar
+47                  indiceBuscar = -1
+48                  Para (i = 0; i < totalProductos; i=i+1)
+49                         Si (inventario[i][0] == nombreBuscar) 
+50                        	indiceBuscar = i
+51                         	Salir // Salir del bucle si se encuentra el producto
+52                         FinSi
+53                 FinPara
+54                 Si (indiceActualizar != -1)
+55                     Escribir("Producto encontrado:")
+56                     Escribir("Nombre: ", inventario[indiceBuscar][0])
+57                     Escribir("Precio: ", inventario[indiceBuscar][1])
+58                     Escribir("Cantidad en stock: ", inventario[indiceBuscar][2])
+59                 Sino
+60                     Escribir("Producto no encontrado.")         
+61 
+62              SiNo 
+64             	      Si (opcion==4)
+65                           // Eliminar producto
+66                           Escribir("Ingrese el nombre del producto a eliminar: ")
+67                           Leer nombreEliminar
+68                           indiceEliminar = -1
+69                           Para (i = 0; i < totalProductos; i=i+1) 
+70                                 Si (inventario[i][0].equalsIgnoreCase(nombreEliminar)) 
+71                                      indiceEliminar = i
+72                                      Salir // Salir del bucle si se encuentra el producto
+73                              FinSi
+74                           FinPara
+75                           Si (indiceEliminar != -1)
+76                                Para ( i = indiceEliminar; i < totalProductos - 1; i=i+1)
+77                                       // Mover los productos restantes hacia arriba para llenar el espacio eliminado
+78                                    inventario[i] = inventario[i + 1]
+79                             FinPara
+80                       Escribir("Producto eliminado exitosamente.")
+81                        totalProductos = totalProductos - 1
+82                        Sino
+83                            Escribir("Producto no encontrado.")
+84          	      SiNo
+85   Si (opcion==5)    
+86              	      Escribir("Inventario:")
+87              	      Escribir("Nombre, Precio, Cantidad en stock")
+88              	      Para  (int i = 0; i < totalProductos; i++)
+89                  		     Escribir(inventario[i][0], inventario[i][1], inventario[i][2])90 
+90          	      FinPara
+91   SiNo			
+92   	Si(opcion==0)
+93              		   Escribir("Saliendo del programa.")
+94          			FinSi
+95 si (opcion =! 5 y 4 y 3 y 2 y 1 y 0)                             
+96     Escribir("Opción no válida. Intente nuevamente.")
+97 FnSi      
+98     Mientras (opcion != 0)
+99 FinAlgoritmo

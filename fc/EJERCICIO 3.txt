@@ -1,0 +1,69 @@
+EJERCICIO 3
+1 INICIO
+ Definir
+      inventario[3][3] = {
+         {"Producto1", "10.0", "50"},
+         {"Producto2", "20.0", "30"},
+         {"Producto3", "15.0", "40"}
+     }
+      opcion, codigoProducto, cantidadDeseada, indiceProducto, i Como Entero
+     precioUnitario, subtotal, iva, descuento, total Como Real
+      opcion = 0
+2 Escrbir "----------------------------------------------------------------------------------"
+3     Hacer
+4         Escribir("Gestión de Tienda:")
+5         Escribir("1. Mostrar Inventario")
+6         Escribir("2. Facturar Producto")
+7         Escribir("0. Salir")
+8       Escribir("Seleccione una opción: ")
+9      Leer opcion
+10           Si (opcion ==1)
+11               Escribir("Inventario:")
+12                Escribir("Código Nombre Precio Cantidad")
+13                  Para ( i = 0; i < inventario.length; i=i+1)
+14                     Escribir(i + 1, inventario[i][0], inventario[i][1], inventario[i][2])
+15                FinPara
+16             SiNo
+17             Si (opcion ==2)
+18                 Escribir("Inventario:")
+19                 Escribir("Código, Nombre, Precio, Cantidad")
+20                 Para (int i = 0; i < inventario.length; i++)
+20                     Escribir(i + 1, inventario[i][0], inventario[i][1], inventario[i][2])
+21                 FinPara
+22                 Escribir("Ingrese el código del producto a facturar: ")
+23                 Leer codigoProducto
+24                 Si (codigoProducto >= 1 && codigoProducto <= Longitud(inventario))
+25                  indiceProducto = codigoProducto - 1
+26                     Escribir("Ingrese la cantidad deseada: ")
+27                     Leer cantidadDeseada
+28                     precioUnitario = ConvertirReal(inventario[indiceProducto][1])
+29                     subtotal = precioUnitario * cantidadDeseada
+30                     iva = 0.12 * subtotal
+31                   descuento = 0
+32                     total = subtotal + iva
+33                     Si (total > 100) 
+34                        descuento = 0.1 * total
+35                         total = total - descuento
+36                         Escribir("¡Alerta! Descuento aplicado: -$", descuento)
+37                    FinSi
+38                     Escribir("FACTURA:")
+39                     Escribir("Producto: ", inventario[indiceProducto][0])
+40                     Escribir("Precio Unitario: $", precioUnitario)
+41                     Escribir("Cantidad: ", cantidadDeseada)
+42                     Escribir("Subtotal: $", subtotal)
+43                     Escribir("IVA (12%): +$", iva)
+44                     Escribir("Descuento: -$", descuento)
+45                     Escribir("Total a Pagar: $", total)
+46                 Sino
+47                     Escribir("Código de producto no válido.")
+48                 FinSi
+49            SiNo
+50             Si (opcion==0)
+51                 Escribir("Saliendo del programa.")
+52             FinSi
+53             Si (opcion != 0 y 1 y 2 )
+54                 Escribir("Opción no válida. Intente nuevamente.")
+55             FinSi
+56         FinSegun
+57     Mientras (opcion != 0)
+58 FinAlgoritmo

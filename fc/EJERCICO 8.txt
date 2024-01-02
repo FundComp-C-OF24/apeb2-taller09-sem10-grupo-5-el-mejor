@@ -1,0 +1,45 @@
+EJERCICO 8
+Inicio
+    Definir
+	lim Como Entero
+	Dimension diagonal[lim][lim]
+Escribir("Ingrese el límite: ")
+Leer lim
+    Para  ( i = 0; i <lim; i=i+1)
+            Para ( j = 0; j < lim; j=j+1) 
+            	  diagonal[i][j] = Aleatorio(-9, 9)
+            FinPara
+    FinPara
+    Escribir("Matriz completa:")
+    Para ( i = 0; i < lim ; i=i+1)
+        Para ( j = 0; j < lim; j=j+1)
+            Escribir(diagonal[i][j], )
+        FinPara
+        Escribir()
+    FinPara
+
+    Escribir("Elementos de la diagonal principal:")
+    Para ( i = 0; i < lim ; i=1+i)
+        Para ( j = 0; j < lim ; j=j+1)
+            Si (i = j)
+                Escribir(diagonal[i][j], ", ")
+            FinSi
+        FinPara
+    FinPara
+    Escribir("Elementos por debajo de la diagonal:")
+    Para ( i = 0; i < lim; i=1+i)
+        Para ( j = 0; j < lim;j=j+1)
+            Si i > j Entonces
+                Escribir(diagonal[i][j], ", ")
+            FinSi
+        FinPara
+    FinPara
+    Escribir("Elementos por encima de la diagonal:")
+    Para ( i = 0; i < lim ; i=i+1 ) r
+        Para ( j = 0; j < diagonal.length; j=j+1 )
+            Si (i < j )
+                Escribir(diagonal[i][j], ", ")
+            FinSi
+        FinPara
+    FinPara
+FinAlgoritmo

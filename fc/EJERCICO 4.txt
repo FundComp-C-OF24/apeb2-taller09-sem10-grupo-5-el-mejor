@@ -1,0 +1,79 @@
+EJERCICO 4
+1 Inicio
+      Definir
+            tablero[3][3] = {
+            {' ', ' ', ' '},
+            {' ', ' ', ' '},
+            {' ', ' ', ' '}
+            }
+            jugadorActual Como Caracter
+            juegoEnCurso, empate Como Logico
+            jugadorActual = 'X'
+            juegoEnCurso = Verdadero
+            i, j Como Entero	
+2 Mientras (juegoEnCurso) 
+3          Escribir("  0 1 2")
+4         Para ( i = 0; i < 3; i=i+1)
+5               Escribir(i, " ");
+6               Para (j = 0; j < 3; j=j+1)
+7                     Escribir(tablero[i][j])
+8                     Si(j < 2)  
+9                        Escribir("|")
+10                    FinSi
+11              FinPara
+12              Escribir()
+13              Si(j < 2)
+14                 Escribir("  -----")
+15              FinSi
+16        FinPara
+17        Escribir()
+18        Escribir("Jugador ", jugadorActual, ", ingresa la fila (0-2) y la columna (0-2) separadas por espacio:")
+19        Leer fila, columna
+20         Mientras (fila < 0 O fila >= 3 O columna < 0 O columna >= 3 O tablero[fila][columna] != ' ') 
+21           Escribir("Entrada inválida. Intenta nuevamente.")
+22           Escribir("Jugador ", jugadorActual, ", ingresa la fila (0-2) y la columna (0-2) separadas por espacio:")
+23           Leer fila, columna
+24         FinMientras
+25         tablero[fila][columna] = jugadorActual
+26        Para (int i = 0; i < 3; i=i+1) Hacer
+27            Si ((tablero[i][0] == jugadorActual Y tablero[i][1] == jugadorActual Y tablero[i][2] == jugadorActual) O (tablero[0][i] == jugadorActual Y tablero[1][i] == jugadorActual Y tablero[2][i] == jugadorActual))           
+28                juegoEnCurso = Falso
+29            FinSi
+30        FinPara
+31        Si( (tablero[0][0] == jugadorActual Y tablero[1][1] == jugadorActual Y tablero[2][2] == jugadorActual) O (tablero[0][2] == jugadorActual Y tablero[1][1] == jugadorActual Y tablero[2][0] == jugadorActual))          
+32            juegoEnCurso = Falso
+33        FinSi
+34        empate = Verdadero
+35        Para ( i = 0; i < 3; i=i+1)
+36            Para ( j = 0; j < 3; j=j+1) 
+37                Si (tablero[i][j] == ' ') 
+38                    empate = Falso
+39                    Salir
+40                FinSi
+41            FinPara
+42        FinPara
+43        Si (empate) 
+44            juegoEnCurso = Falso
+45            Escribir("¡El juego es un empate!")
+46        FinSi
+47	Si (jugadorActual == 'X')  
+48	    jugadorActual= 'O' 
+49	SiNo
+50	     jugadorActual = 'X'     
+51    FinMientras
+52    Escribir("  0 1 2")
+53   Para ( i = 0; i < 3; i=i+1) 
+54        Escribir(i, " ");
+55        Para (int j = 0; j < 3; j=j+1)
+56            Escribir(tablero[i][j])
+57            Si (j < 2) 
+58                Escribir("|")
+59            FinSi
+60        FinPara
+61        Escribir()
+62        Si (i < 2)
+63            Escribir("  -----")
+64        FinSi
+65    FinPara
+66    Escribir()
+67 FinAlgoritmo

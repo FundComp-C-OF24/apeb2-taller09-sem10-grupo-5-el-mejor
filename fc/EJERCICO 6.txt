@@ -1,0 +1,135 @@
+EJERCICO 6
+1  Inicio
+    Definir
+	 opcion, filasA, columnasA, filasB, columnasB, i, j Como Entero
+     	 opcion = 0	
+         matrizAresta[100][100]
+         matrizBresta[100][100]
+         resultadoResta[100][100]
+2    Hacer
+3        Escribir("Menú:")
+4        Escribir("1. Suma de matrices")
+5        Escribir("2. Resta de matrices")
+6        Escribir("3. Salir")
+7        Escribir("Seleccione una opción: ")
+8        Leer opcion
+9        Si (opcion==1)         
+10                Escribir("Ingrese las dimensiones de la primera matriz:")
+11               Escribir("Número de filas: ")
+12                Leer filasA
+13                Escribir("Número de columnas: ")
+14                Leer columnasA
+15                Escribir("Ingrese las dimensiones de la segunda matriz:")
+16                Escribir("Número de filas: ")
+17                Leer filasB
+18                Escribir("Número de columnas: ")
+19                Leer columnasB
+20                Si ((filasA =! filasB) O (columnasA =! columnasB))
+21                    Escribir("Error: Las matrices deben tener las mismas dimensiones para la suma")
+22                    Siguiente opcion
+23                FinSi
+24                Dimension matrizA[100][100]
+25                Dimension matrizB[100][100]
+26                Dimension resultadoSuma[100][100]
+27                Para ( i = 0; i < filasA; i=i+1)
+28                    Para ( j = 0; j < columnasA; j=j+1)
+29                        matrizA[i][j] = Aleatorio(-9, 9)
+30                    FinPara
+31                FinPara
+32                Para( i = 0; i < filasB; i=i+1)
+33                    Para ( j = 0; j < columnasB; j=j+1)
+34                          matrizB[i][j] = Aleatorio(-9, 9)
+35                   FinPara
+36             FinPara
+37                Para ( i = 0; i < filasA; i=i+1)
+38                    Para( j = 0; j < columnasA; j=j+1) 
+39                          resultadoSuma[i][j] = matrizA[i][j] + matrizB[i][j]
+40                    FinPara
+41                FinPara
+42                Escribir("Matriz A:")
+43                Para ( i = 0; i < filasA; i=i+1)
+44                   Para ( j = 0; j < columnasA; j=j+1)
+45                          Escribir(matrizA[i][j], " ")
+46                    FinPara
+47                    Escribir()
+48                FinPara
+49                Escribir("Matriz B:")
+50                Para ( i = 0; i < filasB; i=i+1) 
+51                    Para ( j = 0; j < columnasB; j=j+1)
+52                          Escribir(matrizB[i][j], " ")
+53                    FinPara
+54                    Escribir()
+55                FinPara
+56                Escribir("Resultado de la suma:")
+57                Para ( i = 0; i < filasA; i=i+1)
+58                    Para ( j = 0; j < columnasA; j=j+1)
+59                          Escribir(resultadoSuma[i][j] " ")
+60                    FinPara
+61                    Escribir()
+62                FinPara
+63                Siguiente opcion
+64       SiNo
+65            Si (opcion==2)
+66                Escribir("Ingrese las dimensiones de la primera matriz:")
+67                Escribir("Número de filas: ")
+68                Leer filasA
+69                Escribir("Número de columnas: ")
+70                Leer columnasA
+71                Escribir("Ingrese las dimensiones de la segunda matriz:")
+72                Escribir("Número de filas: ")
+73                Leer filasB
+74                Escribir("Número de columnas: ")
+75                Leer columnasB
+76                Si ((filasA =! filasB) O (columnasA =! columnasB)) Entonces
+77                    Escribir("Error: Las matrices deben tener las mismas dimensiones para la resta")
+78                    Siguiente opcion
+79                FinSi
+80               Para ( i = 0; i < filasA; i=i+1)
+81                    Para ( j = 0; j < columnasA; j=1+j)
+82                        matrizAresta[i][j] = Aleatorio(-9, 9)
+83                    FinPara
+84                FinPara
+85                Para ( i = 0; i < filasA; i=i+1)
+86                    Para ( j = 0; j < columnasA; j=j+1)
+87                        matrizBresta[i][j] = Aleatorio(-9, 9)
+88                    FinPara
+89                FinPara
+90                Para ( i = 0; i < filasB; i=1+i)
+91                    Para ( j = 0; j < columnasB; j=1+j)
+92                        resultadoResta[i][j] = matrizAresta[i][j] - matrizBresta[i][j]
+93                    FinPara
+94                FinPara
+95                Escribir("Matriz A:")
+96                Para ( i = 0; i < filasA; i=1+i)
+97                    Para ( j = 0; j < columnasA; j=j+1)
+98                        Escribir(matrizAresta[i][j], " ")
+99                    FinPara
+100                    Escribir()
+101               FinPara
+102
+103                Escribir("Matriz B:")
+104                Para ( i = 0; i < filasB; i=i+1)
+105                    Para( j = 0; j < columnasB; j=1+j)
+106                        Escribir(matrizBresta[i][j], " ")
+107                    FinPara
+108                   Escribir()
+109                FinPara
+110                Escribir("Resultado de la resta:")
+111                Para( i = 0; i < filasA; i=i+1) 
+112                    Para ( j = 0; j < columnasA; j=j+1)
+113                       Escribir(resultadoResta[i][j], " ")
+114                    FinPara
+115                    Escribir()
+116                FinPara
+117                Siguiente opcion
+118            SiNo
+119		Si (opcion == 3 )
+120    
+121                    Escribir("Saliendo del programa...")
+122		FinSi
+123		Si (opcion =! 1 o 2 o 3)            
+124                     Escribir("Opción no válida")
+125		FinSi
+126        FinSi     
+127    Mientras (opcion =! 3)
+128 FinAlgoritmo

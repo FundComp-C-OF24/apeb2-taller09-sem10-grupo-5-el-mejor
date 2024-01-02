@@ -1,0 +1,44 @@
+EJERCICO 7
+1 Inicio
+    Definir
+	   limite,i,j Como Entero
+	   matriz[limite][limite]
+2 Escribir("Ingrese el límite para la matriz cuadrada: ")
+3 Leer limite
+4 Para ( i = 0; i < limite; i=i+1)
+5        Para ( j = 0; j < limite; j=j+1)
+6            matriz[i][j] = Aleatorio(-9, 9)
+7        FinPara
+8 FinPara
+9 Escribir("Matriz completa:")
+10 Para ( i = 0; i < limite; i=i+1)
+11        Para ( j = 0; j < limite; j=j+1)
+12            Escribir(matriz[i][j], "\t")
+13        FinPara
+14        Escribir()
+15 FinPara
+16 Escribir("\nElementos de la diagonal secundaria:")
+17 Para ( i = 0; i < limite; i=i+1)
+18        Para ( j = 0; j < limite; j=j+1)
+19                Si (i + j == limite - 1)
+20                Escribir(matriz[i][j], " ")
+21            FinSi
+22        FinPara
+23 FinPara
+24 Escribir("\nElementos sobre la diagonal secundaria:")
+25 Para ( i = 0; i < limite; i=i+1)
+26         Para ( j = 0; j < limite; j=j+1)
+27                Si (i + j < limite - 1) 
+28                Escribir(matriz[i][j], " ")
+29            FinSi
+30        FinPara
+31 FinPara
+32 Escribir("\nElementos bajo la diagonal secundaria:")
+33 Para ( i = 0; i < limite; i=i+1)
+34        Para ( j = 0; j < limite; j=j+1)
+35            Si i + j > limite - 1 Entonces
+36                Escribir(matriz[i][j], " ")
+37            FinSi
+38        FinPara
+39 FinPara
+40 FinAlgoritmo

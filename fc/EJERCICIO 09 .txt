@@ -1,0 +1,13 @@
+EJERCICIO 09 
+Inicio
+    Definir 
+	limPiramide Como Entero
+Escribir("Ingresar el límite de la pirámide: ")
+Leer limPiramide
+Para ( i = 0; i < limPiramide; i=i+1)
+        Para ( j = 0; j <= i; j=j+1)
+            Escribir("* ")
+        FinPara
+        Escribir()
+    FinPara
+FinAlgoritmo
